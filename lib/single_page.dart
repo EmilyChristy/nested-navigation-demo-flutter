@@ -12,7 +12,7 @@ class SinglePage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: color,
         title: Text(
-          '$title[$materialIndex]',
+          '$title',
         ),
       ),
       body: Container(
