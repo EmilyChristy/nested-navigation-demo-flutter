@@ -45,9 +45,9 @@ class AppState extends State<App> {
       },
       child: Scaffold(
         body: Stack(children: <Widget>[
-          _buildOffstageNavigator(TabItem.red),
-          _buildOffstageNavigator(TabItem.green),
-          _buildOffstageNavigator(TabItem.blue),
+          _buildOffstageNavigator(TabItem.red, true),
+          _buildOffstageNavigator(TabItem.green, false),
+          _buildOffstageNavigator(TabItem.blue, true),
         ]),
         bottomNavigationBar: BottomNavigation(
           currentTab: _currentTab,
@@ -57,12 +57,13 @@ class AppState extends State<App> {
     );
   }
 
-  Widget _buildOffstageNavigator(TabItem tabItem) {
+  Widget _buildOffstageNavigator(TabItem tabItem, bool isStacked) {
     return Offstage(
       offstage: _currentTab != tabItem,
       child: TabNavigator(
         navigatorKey: _navigatorKeys[tabItem],
         tabItem: tabItem,
+        stacked: isStacked,
       ),
     );
   }
